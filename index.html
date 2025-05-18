@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>تطوير العرب</title>
+  <style>
+    body {
+      font-family: Tahoma, sans-serif;
+      margin: 0;
+      background: #f5f5f5;
+    }
+    header {
+      background-color: #4CAF50;
+      padding: 40px 20px;
+      color: white;
+      text-align: center;
+    }
+    .section {
+      padding: 30px 20px;
+      text-align: center;
+    }
+    .social a {
+      display: inline-block;
+      margin: 10px;
+      padding: 10px 20px;
+      background-color: #4CAF50;
+      color: white;
+      text-decoration: none;
+      border-radius: 6px;
+      transition: 0.3s;
+    }
+    .social a:hover {
+      background-color: #388E3C;
+    }
+    .start-btn {
+      margin-top: 30px;
+      padding: 14px 28px;
+      font-size: 18px;
+      background-color: #2196F3;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    .start-btn:hover {
+      background-color: #1976D2;
+    }
+    textarea {
+      width: 90%;
+      height: 300px;
+      padding: 10px;
+      font-family: monospace;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      margin-top: 20px;
+    }
+    iframe {
+      margin-top: 30px;
+      width: 100%;
+      height: 300px;
+      border: 1px solid #ccc;
+      background-color: white;
+    }
+    button.action-btn {
+      margin: 10px;
+      padding: 10px 20px;
+      background-color: #2196F3;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button.action-btn:hover {
+      background-color: #1976D2;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>تطوير العرب</h1>
+    <p>أهلاً بك! أنشئ صفحتك HTML بسهولة وابدأ التعديل فورًا</p>
+  </header>
+
+  <div class="section">
+    <div class="social">
+      <a href="https://snapchat.com/t/SU8vawil" target="_blank">سناب شات</a>
+      <a href="https://www.tiktok.com/@j2ri6?_t=ZS-8wRhknvlr97&_r=1" target="_blank">تيك توك</a>
+    </div>
+    <button class="start-btn" onclick="document.getElementById('editor').scrollIntoView({ behavior: 'smooth' })">
+      ابدأ الآن
+    </button>
+  </div>
+
+  <div id="editor" class="section">
+    <h2>محرر HTML مباشر</h2>
+    <p>اكتب كود HTML في الأسفل وشاهد النتيجة مباشرة، أو قم بتحميله كملف.</p>
+
+    <textarea id="codeArea">
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <title>صفحتي</title>
+</head>
+<body>
+  <h1>مرحبًا بك!</h1>
+  <p>هذه صفحتك الأولى من تطوير عرب.</p>
+</body>
+</html>
+    </textarea>
+    <br>
+    <button class="action-btn" onclick="runCode()">عرض النتيجة</button>
+    <button class="action-btn" onclick="downloadCode()">تحميل الصفحة</button>
+
+    <iframe id="resultFrame"></iframe>
+  </div>
+
+  <script>
+    function runCode() {
+      const code = document.getElementById("codeArea").value;
+      document.getElementById("resultFrame").srcdoc = code;
+    }
+
+    function downloadCode() {
+      const code = document.getElementById("codeArea").value;
+      const blob = new Blob([code], { type: 'text/html' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'my-page.html';
+      a.click();
+      URL.revokeObjectURL(url);
+    }
+  </script>
+
+</body>
+</html>
